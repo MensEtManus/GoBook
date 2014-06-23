@@ -1,0 +1,2 @@
+http://dummyimage.com/468x60/ffffff/49cc29.png&text=GoBook      fullbanner
+http://dummyimage.com/600x400/ffffff/49cc29.png&text=GoBook     
