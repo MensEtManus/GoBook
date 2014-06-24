@@ -36,7 +36,7 @@
     {
         // unset any session variables
         $_SESSION = [];
-
+        
         // expire cookie
         if (!empty($_COOKIE[session_name()]))
         {
@@ -140,7 +140,6 @@
 
         // execute SQL statement
         $results = $statement->execute($parameters);
-
         // return result set's rows, if any
         if ($results !== false)
         {

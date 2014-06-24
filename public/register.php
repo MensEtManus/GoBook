@@ -19,11 +19,13 @@
             apologize("Your passwords do not match!");
             return false;
         }
-        $result = query("INSERT INTO users (username, hash) VALUES(?, ?)", $_POST["username"], crypt($_POST["password"]));
+
+        $result = query("INSERT INTO users (username, hash) VALUES(?, ?)", $_POST["username"], password_hash($_POST["password"], PASSWORD_DEFAULT));
+        
         if ($result !== false) {
             $rows = query("SELECT LAST_INSERT_ID() AS id");
             $id = $rows[0]["id"];
-            $_SESSION["id"] = $id;
+            $_SESSION['id'] = $id;
             redirect("index.php");
         }
         else {
