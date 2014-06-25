@@ -6,7 +6,7 @@
     // if form was submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        // TODO
+    
         if (empty($_POST["username"])) {
             apologize("Please enter your username!");
             return false;
