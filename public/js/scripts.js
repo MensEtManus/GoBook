@@ -1,17 +1,16 @@
-/*$(document).ready(function  () {
+$(document).ready(function  () {
 
-	$('#login_form').on('submit', function(e) {
+	$('#events_form').on('submit', function(e) {
 		e.preventDefault();
 
 		$.ajax ({
 			type: 'post',
-			url: 'login-new.php',
+			url:  'events.php',
 			data: $(this).serialize(),
 			success: function(data) {
 				if (data.success === false) {
 					if (data.message === 'username') {
 						
-					}
 				}
 				if(data.success === true){
 					
@@ -29,4 +28,4 @@
 	});
 
 
-});*/
+});
