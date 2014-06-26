@@ -9,7 +9,7 @@
             	</ul>
                
                 <ul class="nav hidden-xs" id="lg-menu">
-                    <li class="active"><a href="#featured"><i class="glyphicon glyphicon-list-alt"></i> Friend List</a></li>
+                    <li class="active"><a href="#Friend List"><i class="glyphicon glyphicon-list-alt"></i> Friend List</a></li>
                     <!-- I may not need all this right now, will generate list based on my friends 
                     <li><a href="#stories"><i class="glyphicon glyphicon-list"></i> Stories</a></li>
                     <li><a href="#"><i class="glyphicon glyphicon-paperclip"></i> Saved</a></li> -->
@@ -61,7 +61,9 @@
                       <li>
                         <a href="#postModal" role="button" data-toggle="modal"><i class="glyphicon glyphicon-plus"></i> Post</a>
                       </li>
-                     
+                      <li>
+                        <a href="#aboutModal" role="button" data-toggle="modal"><i class="glyphicon glyphicon"></i> About</a>
+                      </li>
                     </ul>
                     <ul class="nav navbar-nav pull-right">
                      	<li>
@@ -82,30 +84,22 @@
                          <div class="col-sm-5">
                            	<div class="panel panel-default">
                                 <div class="panel-heading"><h4>What's New</h4></div>
-                               	<div class="panel-body">
-                                	This is nothing without JavaScript
+                               	<div id="matches" class="panel-body" >
+                                	<div id="default-match-msg">The events matched will show here...<button class="btn btn-success btn-sm pull-right">Yes</button></div>
 
                                 </div>
                              </div>
-                                               
-                             <div class="panel panel-default">
-                                <div class="panel-heading"><h4>What Is GoBook?</h4></div>
-                               	<div class="panel-body">
-                               		GoBook is a new way of socializing with friends. Unlike the traditional way to ask friends what they want to do at certain time, 
-                               		GoBook allows you to simply jot down the things you want to do, and it will figure out if your friends also want to do the same thing at
-                               		the same time (if they also wrote down the same event). The events matched will show up in the 'What's New panel' and you will have 
-                               		the option to decide if you would like to do that particular event with that particular friend. If both of you choose yes, both of you 
-                               		will get notifications for each other. Have fun!
-                                </div>
-                             </div>
+                           
+                                              
+                           
                     
-                          </div>
+                          </div> 
                           
                           <!-- main col right -->
                           <div class="col-sm-7"> 
                                <div class="panel panel-default">
                                  <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>My GoBook</h4></div>
-                                  <div class="panel-body">
+                                  <div class="panel-body" id="myGoBook">
                                     
                                     <hr>
                                     This is nothing without JavaScript!!!
@@ -116,16 +110,18 @@
                       
                         <div class="row">
                           <div class="col-sm-6">
-                            <a href="#">Twitter</a> <small class="text-muted">|</small> <a href="#">Facebook</a> <small class="text-muted">|</small> <a href="#">Google+</a>
+                            <a href="https://twitter.com/MensEtWise" target="_blank">Twitter</a> <small class="text-muted">|</small> 
+                            <a href="https://www.facebook.com/ayoungbest" target="_blank">Facebook</a> <small class="text-muted">|</small> 
+                            <a href="https://plus.google.com/" target="_blank">Google+</a>
                           </div>
                         </div>
 
                         <div class="row" id="footer">    
                             <div class="col-sm-6">
                     		</div>
-                          	<div class="col-sm-6">
+                          	<div class="col-sm-6" id="copyright">
                             	<p>
-                            		<a href="#" class="pull-right">©2014 Albert Yang</a>
+                            		<a href="http://alberthbyang.com" target="_blank" class="pull-right">©2014 Albert Yang</a>
                             	</p>
                           	</div>
                         </div> 
@@ -148,9 +144,9 @@
 				Add Events
       		</div>
       		<div class="modal-body">
-          		<form class="form center-block">
+          		<form class="form center-block" id="events_form" action="" style="padding: 10px;">
      				<div class="to-do">
-     					<label>What would you like to do this week?</label>
+     					<label style="padding: 5px;">What would you like to do this week?</label>
 		    			<select name="eventName" class="form-control">
 			  				<option value="Go to the movies">Go to the movies</option>
 						  	<option value="Go to the Gym">Go to the Gym</option>
@@ -159,7 +155,7 @@
 						  	<option value="Study for my classes">Study for my classes</option>
 						</select>
 						<br>
-						<label>What day would you like to do it?</label>
+						<label style="padding: 5px;">What day would you like to do it?</label>
 						<select name="eventDate" class="form-control">
 				  			<option value="1">Monday</option>
 						  	<option value="2">Tuesday</option>
@@ -170,26 +166,70 @@
 						  	<option value="7">Sunday</option>
 						</select>
 						<br>
-						<label>What time on that day would you like to do it?</label>
+						<label style="padding: 5px;">What time on that day would you like to do it?</label>
 						<select name="time" class="form-control">
-				  			<option value="1">Mornign</option>
+				  			<option value="1">Morning</option>
 						  	<option value="2">Afternoon</option>
 						  	<option value="3">Evening</option>
 						</select>
-     				</div>     	
-	    			
-      			</form>
-      		</div>
-      		<div class="modal-footer">
-		         <div>
-		          <button class="btn btn-success btn-sm" data-dismiss="modal" aria-hidden="true">Add to My GoBook</button>
-		            <ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
-			 	</div>	
+     				</div>   
+	     			<div class="modal-footer">
+			         	<div>
+			          	<button class="btn btn-success btn-sm" data-dismiss="modal" aria-hidden="true" type="submit">Add to My GoBook</button>
+			            	<ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
+				 		</div>	
+	      			</div>
+      			</form>	  	     			
       		</div>
   		</div>
   	</div>
 </div>
 
+<!-- About Modal -->
+<div id="aboutModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  	<div class="modal-dialog">
+  		<div class="modal-content">
+      		<div class="modal-header">
+          		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				What is GoBook?
+      		</div>
+      		<div class="modal-body" style="padding: 10px;">
+      			GoBook is a new way of socializing with friends. Unlike the traditional way to ask friends what they want to do at certain time, 
+      			GoBook allows you to simply jot down the things you want to do, and it will figure out if your friends also want to do the same thing at
+      			the same time (if they also wrote down the same event). The events matched will show up in the 'What's New panel' and you will have 
+      			the option to decide if you would like to do that particular event with that particular friend. If both of you choose yes, both of you 
+      			will get notifications for each other. Have fun!    				     			
+      		</div>
+      		<div class="modal-footer">
+      			<div>
+      				<button class="btn btn-success btn-sm" data-dismiss="modal" aria-hidden="true">Ok I got it!</button>
+
+      			</div>	
+	      	</div>
+  		</div>
+  	</div>
+</div>
+
+<div id="messageModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  	<div class="modal-dialog">
+  		<div class="modal-content">
+      		<div class="modal-header">
+          		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				Something went wrong
+      		</div>
+      		<div id="faliedAddingEvents" class="modal-body" style="padding: 10px;">
+      			Failed to add event to your GoBook! This is probably because you already have added the same event! Try change the attributes of 
+      			your event and try again!   				     			
+      		</div>
+      		<div class="modal-footer">
+      			<div>
+      				<button class="btn btn-danger btn-sm" data-dismiss="modal" aria-hidden="true">Ok I got it!</button>
+
+      			</div>	
+	      	</div>
+  		</div>
+  	</div>
+</div>
 
 
 

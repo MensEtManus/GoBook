@@ -222,7 +222,12 @@ h1,h2,h3 {
   background-color:#f9fafb;
   color:#555555;
 }
-
+#myGoBook {
+    min-height: 50rem;
+}
+#matches {
+    min-height: 30rem;
+}
 .col-sm-9.full {
     width: 100%;
 }
@@ -253,7 +258,15 @@ h1,h2,h3 {
     left: 5%;
     position: relative;
 }
-
+.col-sm-6 {
+    position: fixed;
+    bottom: 5%;
+}
+#copyright {
+    position: fixed;
+    bottom: 5%;
+    right: 10%;
+}
 small.text-muted {
   font-family:courier,courier-new,monospace;
 }

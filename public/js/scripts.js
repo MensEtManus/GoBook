@@ -1,6 +1,6 @@
 $(document).ready(function  () {
 
-	$('#events_form').on('submit', function(e) {
+	$('#events_form').on('click', function(e) {
 		e.preventDefault();
 
 		$.ajax ({
@@ -8,21 +8,20 @@ $(document).ready(function  () {
 			url:  'events.php',
 			data: $(this).serialize(),
 			success: function(data) {
-				if (data.success === false) {
-					if (data.message === 'username') {
-						
-				}
-				if(data.success === true){
+				if (data.added === "failed") {
 					
-				}else{
-
+					
+					$("#messageModal").modal("show");
+					
 				}
-			}
-				if(data.success === true){
-					window.location.href = 'index.php';
-				}else{
+				var div = $('#matches:last-child');
+				div.append("<div>haha</div>");
+/*
+				$.each(data.friends, function  (index, val) {
+					var li = $('<li>'+val+'</li>');
 
-				}
+					ul.append(li);
+				});  */
 			}
 		});
 	});
