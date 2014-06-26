@@ -14,3 +14,7 @@
 <div>
     or <a href="register.php">register</a> for an account
 </div>
+<br>
+<div style="font-size:smaller;">
+    Copyright &#169; Albert Yang
+</div>

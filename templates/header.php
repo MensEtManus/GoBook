@@ -27,7 +27,8 @@
         <div class="container">
 
             <div id="top">
-                <a href="../public/login.php"><img alt="GoBook" src="../public/img/600_400.jpg"/></a>
+                <a href="../public/index.php"><img alt="GoBook" src="../public/img/600_400.jpg"/></a>
             </div>
+
 
             <div id="middle" class="front">
