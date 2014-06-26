@@ -249,6 +249,11 @@ h1,h2,h3 {
    box-shadow:0 0 0;
 }
 
+.to-do {
+    left: 5%;
+    position: relative;
+}
+
 small.text-muted {
   font-family:courier,courier-new,monospace;
 }

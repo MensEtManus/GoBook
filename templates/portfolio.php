@@ -120,18 +120,15 @@
                           </div>
                         </div>
 
-                         <div class="row" id="footer">    
-                          <div class="col-sm-6">
-                            
-                          </div>
-                          <div class="col-sm-6">
-                            <p>
-                            <a href="#" class="pull-right">©2014 Albert Yang</a>
-                            </p>
-                          </div>
-                        </div>
-                    
-                        
+                        <div class="row" id="footer">    
+                            <div class="col-sm-6">
+                    		</div>
+                          	<div class="col-sm-6">
+                            	<p>
+                            		<a href="#" class="pull-right">©2014 Albert Yang</a>
+                            	</p>
+                          	</div>
+                        </div> 
                     </div><!-- /col-9 -->
                 </div><!-- /padding -->
             </div>
@@ -144,27 +141,55 @@
 
 <!--post modal-->
 <div id="postModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog">
-  <div class="modal-content">
-      <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			Update Status
-      </div>
-      <div class="modal-body">
-          <form class="form center-block">
-            <div class="form-group">
-              <textarea class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea>
-            </div>
-          </form>
-      </div>
-      <div class="modal-footer">
-          <div>
-          <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Post</button>
-            <ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
-		  </div>	
-      </div>
-  </div>
-  </div>
+  	<div class="modal-dialog">
+  		<div class="modal-content">
+      		<div class="modal-header">
+          		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				Add Events
+      		</div>
+      		<div class="modal-body">
+          		<form class="form center-block">
+     				<div class="to-do">
+     					<label>What would you like to do this week?</label>
+		    			<select name="eventName" class="form-control">
+			  				<option value="Go to the movies">Go to the movies</option>
+						  	<option value="Go to the Gym">Go to the Gym</option>
+						  	<option value="Go grocery shopping">Go grocery shopping</option>
+						  	<option value="Go to the malls">Go to the malls</option>
+						  	<option value="Study for my classes">Study for my classes</option>
+						</select>
+						<br>
+						<label>What day would you like to do it?</label>
+						<select name="eventDate" class="form-control">
+				  			<option value="1">Monday</option>
+						  	<option value="2">Tuesday</option>
+						  	<option value="3">Wednesday</option>
+						  	<option value="4">Thursday</option>
+						  	<option value="5">Friday</option>
+						  	<option value="6">Saturday</option>
+						  	<option value="7">Sunday</option>
+						</select>
+						<br>
+						<label>What time on that day would you like to do it?</label>
+						<select name="time" class="form-control">
+				  			<option value="1">Mornign</option>
+						  	<option value="2">Afternoon</option>
+						  	<option value="3">Evening</option>
+						</select>
+     				</div>     	
+	    			
+      			</form>
+      		</div>
+      		<div class="modal-footer">
+		         <div>
+		          <button class="btn btn-success btn-sm" data-dismiss="modal" aria-hidden="true">Add to My GoBook</button>
+		            <ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
+			 	</div>	
+      		</div>
+  		</div>
+  	</div>
 </div>
+
+
 
 
