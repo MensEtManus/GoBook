@@ -20,15 +20,18 @@
         <script src="../public/js/turn.min.js"></script>
         <script src="../public/js/turn.js"></script>
 
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+       
+        <meta name="generator" content="Bootply" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
     </head>
 
     <body>
 
-        <div class="container">
+        
 
-            <div id="top">
-                <a href="../public/index.php"><img alt="GoBook" src="../public/img/600_400.jpg"/></a>
-            </div>
+            
 
-
-            <div id="middle" class="front">
+            
