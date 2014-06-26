@@ -6,6 +6,7 @@
     require("../includes/config.php");
 
     $sendback = array();
+    $event = ("name" => _POST["eventName"], "data" => _POST["eventDate"], "time" => _POST["time"], "done" => 0);
     // if form was submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
@@ -13,9 +14,9 @@
         $result = query("INSERT INTO events (eventName, eventDate, time, eventDone, userID) 
                         VALUES(?, ?, ?, ?, ?)", $_POST["eventName"], $_POST["eventDate"], $_POST["time"], 0, $_SESSION["id"]);
         
-        
+       
         if ($result !== false) { 
-
+            $sendback["added"] = "success";
             // search for other matches with your friends
             $friends_match = query("SELECT friends.userID, friends.userName FROM events JOIN friends ON friends.userID = events.userID AND friends.myID = ? 
                             WHERE eventName = ? AND eventDate = ? AND time = ? AND eventDone = ?",
@@ -23,11 +24,11 @@
 
 
             if ($friends_match !== false) {
-
-
+               
+                $sendback["friends"] = $friends_match;
+                $sendback["events"] = $event;
                 echo json_encode($sendback);
             }
-            //redirect("index.php");
         }
         else {
             $sendback["added"] = "failed";

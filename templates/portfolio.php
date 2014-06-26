@@ -89,18 +89,14 @@
 
                                 </div>
                              </div>
-                           
-                                              
-                           
-                    
+                          
                           </div> 
                           
                           <!-- main col right -->
                           <div class="col-sm-7"> 
                                <div class="panel panel-default">
                                  <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>My GoBook</h4></div>
-                                  <div class="panel-body" id="myGoBook">
-                                    
+                                  <div class="panel-body" id="myGoBook">                                    
                                     <hr>
                                     This is nothing without JavaScript!!!
                                   </div>
@@ -157,6 +153,7 @@
 						<br>
 						<label style="padding: 5px;">What day would you like to do it?</label>
 						<select name="eventDate" class="form-control">
+
 				  			<option value="1">Monday</option>
 						  	<option value="2">Tuesday</option>
 						  	<option value="3">Wednesday</option>
@@ -175,7 +172,7 @@
      				</div>   
 	     			<div class="modal-footer">
 			         	<div>
-			          	<button class="btn btn-success btn-sm" data-dismiss="modal" aria-hidden="true" type="submit">Add to My GoBook</button>
+			          	<button class="btn btn-success btn-sm" type="submit">Add to My GoBook</button>
 			            	<ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
 				 		</div>	
 	      			</div>
@@ -210,12 +207,12 @@
   	</div>
 </div>
 
-<div id="messageModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+<div id="warningModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
   	<div class="modal-dialog">
   		<div class="modal-content">
       		<div class="modal-header">
           		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				Something went wrong
+				<p style="color: red;">Something went wrong!</p>
       		</div>
       		<div id="faliedAddingEvents" class="modal-body" style="padding: 10px;">
       			Failed to add event to your GoBook! This is probably because you already have added the same event! Try change the attributes of 

@@ -1,30 +1,33 @@
 $(document).ready(function  () {
 
-	$('#events_form').on('click', function(e) {
+	$('#events_form').submit(function(e) {
 		e.preventDefault();
-
+		
 		$.ajax ({
 			type: 'post',
 			url:  'events.php',
 			data: $(this).serialize(),
 			success: function(data) {
 				if (data.added === "failed") {
-					
-					
-					$("#messageModal").modal("show");
+					$("#postModal").modal("hide");
+
+					$("#warningModal").modal("show");
 					
 				}
-				var div = $('#matches:last-child');
-				div.append("<div>haha</div>");
-/*
-				$.each(data.friends, function  (index, val) {
-					var li = $('<li>'+val+'</li>');
+				else {
+					$("#postModal").modal("hide");
+					var div = $('#matches:last-child');
 
-					ul.append(li);
-				});  */
+					div.append('<p style="padding: 5px;">haha <button class="btn btn-success btn-sm pull-right">Yes</button></p>');
+					$('#default-match-msg').hide();
+/*
+					$.each(data.friends, function  (index, val) {
+						var li = $('<li>'+val+'</li>');
+						ul.append(li);
+					});  */
+				}
+				
 			}
 		});
 	});
-
-
 });
