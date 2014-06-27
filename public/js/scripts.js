@@ -53,7 +53,9 @@ $(document).ready(function() {
 					
 				}
 				else {
-					update_events();					
+					
+					update_events();
+					window.location.reload();					
 				}
 				
 			}
@@ -72,7 +74,8 @@ $(document).ready(function() {
 					
 				}
 				else {
-					update_events();					
+					update_events();	
+					window.location.reload();				
 				}
 				
 			}
