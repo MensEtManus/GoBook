@@ -9,11 +9,11 @@
             	</ul>
                
                 <ul class="nav hidden-xs" id="lg-menu">
-                    <li class="active"><a href="#Friend List"><i class="glyphicon glyphicon-list-alt"></i> Friend List</a></li>
+                    <li class="active" id="friend_list"><a href="#Friend List"><i class="glyphicon glyphicon-list-alt"></i> Friend List</a></li>
                     <!-- I may not need all this right now, will generate list based on my friends 
                     <li><a href="#stories"><i class="glyphicon glyphicon-list"></i> Stories</a></li>
                     <li><a href="#"><i class="glyphicon glyphicon-paperclip"></i> Saved</a></li> -->
-                    <li><a href="#"><i class="glyphicon glyphicon-refresh"></i> Refresh</a></li>
+                    <li><a href="../public/index.php"><i class="glyphicon glyphicon-refresh"></i> Refresh</a></li>
                 </ul>
                 <ul class="list-unstyled hidden-xs" id="sidebar-footer">
                     <li>
@@ -43,12 +43,12 @@
           				<span class="icon-bar"></span>
           				<span class="icon-bar"></span>
                       </button>
-                      <a href="/" class="navbar-brand logo">G</a>
+                      <a href="../public/index.php" class="navbar-brand logo">G</a>
                   	</div>
                   	<nav class="collapse navbar-collapse" role="navigation">
-                    <form class="navbar-form navbar-left">
+                    <form class="navbar-form navbar-left" id="search_form">
                         <div class="input-group input-group-sm" style="max-width:360px;">
-                          <input type="text" class="form-control" placeholder="Search Username" name="srch-term" id="srch-term">
+                          <input name="search" type="text" class="form-control" placeholder="Search Username" id="srch-term">
                           <div class="input-group-btn">
                             <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                           </div>
@@ -56,10 +56,10 @@
                     </form>
                     <ul class="nav navbar-nav">
                       <li>
-                        <a href="#"><i class="glyphicon glyphicon-home"></i> Home</a>
+                        <a href="../public/index.php"><i class="glyphicon glyphicon-home"></i> Home</a>
                       </li>
                       <li>
-                        <a href="#postModal" role="button" data-toggle="modal"><i class="glyphicon glyphicon-plus"></i> Post</a>
+                        <a href="#postModal" role="button" data-toggle="modal"><i class="glyphicon glyphicon-plus"></i> Go</a>
                       </li>
                       <li>
                         <a href="#aboutModal" role="button" data-toggle="modal"><i class="glyphicon glyphicon"></i> About</a>
@@ -81,7 +81,7 @@
                       	<div class="row">
                           
                          <!-- main col left --> 
-                         <div class="col-sm-5">
+                         <div class="col-sm-7">
                            	<div class="panel panel-default">
                                 <div class="panel-heading"><h4>What's New</h4></div>
                                	<div id="matches" class="panel-body" >
@@ -93,12 +93,31 @@
                           </div> 
                           
                           <!-- main col right -->
-                          <div class="col-sm-7"> 
+                          <div class="col-sm-5"> 
                                <div class="panel panel-default">
                                  <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>My GoBook</h4></div>
-                                  <div class="panel-body" id="myGoBook">                                    
-                                    <hr>
-                                    This is nothing without JavaScript!!!
+                                  <div class="panel-body" id="myGoBook">   
+                                  	<table class="table table-hover" id="event_table">
+                                  		<thead>
+                                  			<tr>
+                                  				<th>Event Name</th>
+		                                  		<th>Date</th>
+		                                  		<th>Time</th>
+		                                  		<th>Done</th>
+                                  			</tr>
+	                            
+                                  		</thead>   
+                                  		<tbody id="my_events">
+
+                                    		<tr >
+                                    			    
+                                    		</tr>
+
+                                  		</tbody>
+
+                                  	</table> 
+                                  	                  
+                                    
                                   </div>
                                </div>
                           </div>
@@ -154,20 +173,20 @@
 						<label style="padding: 5px;">What day would you like to do it?</label>
 						<select name="eventDate" class="form-control">
 
-				  			<option value="1">Monday</option>
-						  	<option value="2">Tuesday</option>
-						  	<option value="3">Wednesday</option>
-						  	<option value="4">Thursday</option>
-						  	<option value="5">Friday</option>
-						  	<option value="6">Saturday</option>
-						  	<option value="7">Sunday</option>
+				  			<option value="Monday">Monday</option>
+						  	<option value="Tuesday">Tuesday</option>
+						  	<option value="Wednesday">Wednesday</option>
+						  	<option value="Tursday">Thursday</option>
+						  	<option value="Friday">Friday</option>
+						  	<option value="Saturday">Saturday</option>
+						  	<option value="Sunday">Sunday</option>
 						</select>
 						<br>
 						<label style="padding: 5px;">What time on that day would you like to do it?</label>
 						<select name="time" class="form-control">
-				  			<option value="1">Morning</option>
-						  	<option value="2">Afternoon</option>
-						  	<option value="3">Evening</option>
+				  			<option value="Morning">Morning</option>
+						  	<option value="Afternoon">Afternoon</option>
+						  	<option value="Evening">Evening</option>
 						</select>
      				</div>   
 	     			<div class="modal-footer">
@@ -228,5 +247,24 @@
   	</div>
 </div>
 
+<div id="failAddFriendModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  	<div class="modal-dialog">
+  		<div class="modal-content">
+      		<div class="modal-header">
+          		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<p style="color: red;">Something went wrong!</p>
+      		</div>
+      		<div id="faliedAddingEvents" class="modal-body" style="padding: 10px;">
+      			Failed to add friend! Please try again!				     			
+      		</div>
+      		<div class="modal-footer">
+      			<div>
+      				<button class="btn btn-danger btn-sm" data-dismiss="modal" aria-hidden="true">Dismiss</button>
+
+      			</div>	
+	      	</div>
+  		</div>
+  	</div>
+</div>
 
 
