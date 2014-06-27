@@ -23,6 +23,7 @@
                             WHERE eventName = ? AND eventDate = ? AND time = ? AND eventDone = ?",
                             $_SESSION["id"], $_POST["eventName"], $_POST["eventDate"], $_POST["time"], 0);
 
+            $my_userName = query("SELECT users.userName FROM users WHERE users.id = ?", $_SESSION["id"]);
             
             if ($friends_match !== false) {
                 // add matches to the database 
@@ -30,7 +31,10 @@
                     # code...
                     $matches = query("INSERT INTO matches (eventName, eventDate, time, userName, myID)
                                     VALUES(?, ?, ?, ?, ?)", $_POST["eventName"], $_POST["eventDate"], $_POST["time"], $friends["userName"], $_SESSION["id"]);
-                }
+                    $matches = query("INSERT INTO matches (eventName, eventDate, time, userName, myID)
+                                    VALUES(?, ?, ?, ?, ?)", $_POST["eventName"], $_POST["eventDate"], $_POST["time"], $my_userName[0]["userName"], $friends["userID"]);
+
+                }   
                 
                 $sendback["friends"] = $friends_match;
                 $sendback["events"] = $event;

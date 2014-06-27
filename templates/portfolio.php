@@ -9,12 +9,15 @@
             	</ul>
                
                 <ul class="nav hidden-xs" id="lg-menu">
-                    <li class="active" id="friend_list"><a href="#Friend List"><i class="glyphicon glyphicon-list-alt"></i> Friend List</a></li>
-                    <!-- I may not need all this right now, will generate list based on my friends 
-                    <li><a href="#stories"><i class="glyphicon glyphicon-list"></i> Stories</a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-paperclip"></i> Saved</a></li> -->
-                    <li><a href="../public/index.php"><i class="glyphicon glyphicon-refresh"></i> Refresh</a></li>
+                    <li  class="active" ><a href="#Friend List"><i class="glyphicon glyphicon-list-alt"></i> Friend List</a></li>
+                    <div id="friend_list">
+
+                    </div>
+                    	
+                    
+                  	<li class="refresh"><a href="../public/index.php"><i class="glyphicon glyphicon-refresh"></i> Refresh</a></li>
                 </ul>
+
                 <ul class="list-unstyled hidden-xs" id="sidebar-footer">
                     <li>
                       <a href="#"><h3>GoBook</h3> </a>
@@ -247,7 +250,7 @@
   	</div>
 </div>
 
-<div id="failAddFriendModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+<div id="friendFailModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
   	<div class="modal-dialog">
   		<div class="modal-content">
       		<div class="modal-header">
@@ -266,5 +269,22 @@
   		</div>
   	</div>
 </div>
+<div id="friendSuccessModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  	<div class="modal-dialog">
+  		<div class="modal-content">
+      		<div class="modal-header">
+          		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				Successfully Added a Friend
+      		</div>
+      		<div class="modal-body" style="padding: 10px;">
+      			Congratulations! You successfully added a friend! 				     			
+      		</div>
+      		<div class="modal-footer">
+      			<div>
+      				<button class="btn btn-success btn-sm" data-dismiss="modal" aria-hidden="true">Ok I got it!</button>
 
-
+      			</div>	
+	      	</div>
+  		</div>
+  	</div>
+</div>

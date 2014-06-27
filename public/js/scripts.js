@@ -8,10 +8,12 @@ $(document).ready(function() {
 			success: function(json) {
 				var events = json.events;
 				var matches = json.matches;
-				var friends = json.friends.sort();
+				var friends = json.friends;
+
 				var tr = $('#my_events');
 				if (events.length !== 0) {
 					$('.defaut-events-msg').hide();
+					$('#my_events').empty();
 				}
 				for (var i = 0; i < events.length; i++) {
 					tr.append('<tr>' + '<td>' + events[i]["eventName"] +'</td>' 
@@ -22,17 +24,24 @@ $(document).ready(function() {
 			
 
 				var div = $('#matches:last-child');
+				if (matches.length !== 0) {
+					$('#default-match-msg').hide();
+					$('#matches').empty();
+				}
 				for (var i = 0; i < matches.length; i++) {
 					div.append('<p style="padding: 5px;">' + matches[i]["userName"] + " wants to " + matches[i]["eventName"] 
 						+ ' on ' + matches[i]["eventDate"] + ' ' + matches[i]["time"] + '<button class="btn btn-success btn-sm pull-right">Yes</button></p>');
 				}
-				if (matches.length !== 0) {
-					$('#default-match-msg').hide();
-				}
+				
 					
 				var li = $('#friend_list');
-				for (var i = 0; i < friends.length; i++) {
-					li.append('<li>' + '<a href="#">' + '<i class="glyphicon glyphicon-user">' + '</i>' + '  ' + friends[i]["userName"] + '</a>' + '</li>');
+			    if (friends.length !== 0) {
+					var refresh = document.getElementById("refresh");
+					$('#friend_list ').empty();
+
+				}
+     			for (var i = 0; i < friends.length; i++) {
+					li.append('<li id="friends">' + '<a href="#">' + '<i class="glyphicon glyphicon-user">' + '</i>' + '  ' + friends[i]["userName"] + '</a>' + '</li>');
 				}
 
 			}
@@ -48,6 +57,7 @@ $(document).ready(function() {
 			url:  'events.php',
 			data: $(this).serialize(),
 			success: function(data) {
+				
 				if (data.added === "failed") {
 					$("#warningModal").modal("show");
 					
@@ -55,7 +65,7 @@ $(document).ready(function() {
 				else {
 					
 					update_events();
-					window.location.reload();					
+					//window.location.reload();					
 				}
 				
 			}
@@ -70,12 +80,14 @@ $(document).ready(function() {
 			data: $(this).serialize(),
 			success: function(json) {
 				if (json.added_friend === "failed") {
-					$("#failAddFriendModal").modal("show");
+					$("#friendFailModal").modal("show");
 					
 				}
 				else {
-					update_events();	
-					window.location.reload();				
+
+					update_events();
+					$("#friendSuccessModal").modal("show");	
+					//window.location.reload();				
 				}
 				
 			}
