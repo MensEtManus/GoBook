@@ -11,6 +11,7 @@
         $friend_list = query("SELECT friends.userID FROM friends WHERE friends.myID = ?", $_SESSION["id"]);
        
         if ($user !== false) {
+          
             if (in_array($user[0]["id"], $friend_list) || $user[0]["id"] === $_SESSION["id"]) {
                 $sendback["added_friend"] = "failed";
                 echo json_encode($sendback);

@@ -28,7 +28,7 @@
             if ($friends_match !== false) {
                 // add matches to the database 
                 foreach ($friends_match as $friends) {
-                    # code...
+                 
                     $matches = query("INSERT INTO matches (eventName, eventDate, time, userName, myID)
                                     VALUES(?, ?, ?, ?, ?)", $_POST["eventName"], $_POST["eventDate"], $_POST["time"], $friends["userName"], $_SESSION["id"]);
                     $matches = query("INSERT INTO matches (eventName, eventDate, time, userName, myID)

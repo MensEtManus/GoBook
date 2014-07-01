@@ -281,10 +281,13 @@
       		</div>
       		<div class="modal-footer">
       			<div>
-      				<button class="btn btn-success btn-sm" data-dismiss="modal" aria-hidden="true">Ok I got it!</button>
+      				<button class="btn btn-success btn-sm" data-dismiss="modal" aria-hidden="true">Thanks!</button>
 
       			</div>	
 	      	</div>
   		</div>
   	</div>
 </div>
+
+
+

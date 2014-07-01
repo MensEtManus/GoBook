@@ -48,6 +48,14 @@ $(document).ready(function() {
 		});
 	}
 	
+/*	function friendDialog() {
+		$('#friend-dialog').dialog();
+	
+	}
+
+	function failAddFriend() {
+		$('#fail-Addfriend').dialog();
+	}*/
 	$('#events_form').submit(function(e) {
 		e.preventDefault();
 		$("#postModal").modal("hide");
@@ -65,7 +73,7 @@ $(document).ready(function() {
 				else {
 					
 					update_events();
-					//window.location.reload();					
+									
 				}
 				
 			}
@@ -80,14 +88,14 @@ $(document).ready(function() {
 			data: $(this).serialize(),
 			success: function(json) {
 				if (json.added_friend === "failed") {
-					$("#friendFailModal").modal("show");
-					
+					$("#friendFailModal").modal("show");					
 				}
 				else {
 
 					update_events();
+					//friendDialog();
 					$("#friendSuccessModal").modal("show");	
-					//window.location.reload();				
+							
 				}
 				
 			}
